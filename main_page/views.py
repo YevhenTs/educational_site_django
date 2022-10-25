@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Category, Dish, Gallery, Whyus, Events, HeroSec
 from .forms import UserReservationsForm
-import random
+
 
 # Create your views here.
 
@@ -16,7 +16,6 @@ def main_page_view(request):
     dishes = Dish.objects.filter(is_visible=True).filter(is_special=False)
     special_dishes = Dish.objects.filter(is_visible=True).filter(is_special=True)
     gallery = Gallery.objects.filter(is_visible=True)
-    gallery = random.choices(gallery, k=4)
     user_reservation = UserReservationsForm()
     whyus = Whyus.objects.all()
     events = Events.objects.filter(is_visible=True)
